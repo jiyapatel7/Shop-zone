@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopZone - Online Shopping</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<header>
+    <div class="navbar">
+
+        <div class="logo">
+            <h2>shop<span>zone</span></h2>
+        </div>
+
+        <div class="location">
+            <i class="fa-solid fa-location-dot"></i>
+            <div>
+                <small>Deliver to</small>
+                <b>India</b>
+            </div>
+        </div>
+
+        <div class="search">
+            <select id="category">
+                <option value="all">All</option>
+                <option value="Electronics">Electronics</option>
+                <option value="Fashion">Fashion</option>
+                <option value="Home">Home</option>
+            </select>
+
+            <input type="text" id="searchInput"
+                   placeholder="Search ShopZone products">
+
+            <button onclick="searchProducts()">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+        </div>
+
+        <div class="nav-item">
+            <small>Hello, sign in</small>
+            <b>Account & Lists</b>
+        </div>
+
+        <div class="nav-item">
+            <small>Returns</small>
+            <b>& Orders</b>
+        </div>
+
+        <div class="cart" onclick="toggleCart()">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span id="cartCount">0</span>
+            <b>Cart</b>
+        </div>
+
+    </div>
+
+    <nav class="subnav">
+        <a href="#" onclick="filterCategory('all')">☰ All</a>
+        <a href="#products">Today's Deals</a>
+        <a href="#products">Customer Service</a>
+        <a href="#products">Electronics</a>
+        <a href="#products">Fashion</a>
+        <a href="#products">Home & Kitchen</a>
+    </nav>
+</header>
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>Big Shopping Days!</h1>
+        <p>Discover amazing deals on your favourite products.</p>
+        <button onclick="document.getElementById('products').scrollIntoView()">
+            Shop Now
+        </button>
+    </div>
+</section>
+
+<!-- Category Section -->
+<section class="categories">
+    <h2>Shop by Category</h2>
+
+    <div class="category-grid">
+
+        <div class="category-card" onclick="filterCategory('Electronics')">
+            <img src="https://images.unsplash.com/photo-1498049794561-7780e7231661?w=400" alt="Electronics">
+            <h3>Electronics</h3>
+        </div>
+
+        <div class="category-card" onclick="filterCategory('Fashion')">
+            <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?w=400" alt="Fashion">
+            <h3>Fashion</h3>
+        </div>
+
+        <div class="category-card" onclick="filterCategory('Home')">
+            <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=400" alt="Home">
+            <h3>Home & Living</h3>
+        </div>
+
+    </div>
+</section>
+
+<!-- Products -->
+<section class="products-section" id="products">
+
+    <div class="section-heading">
+        <h2>Popular Products</h2>
+        <button onclick="filterCategory('all')">View All</button>
+    </div>
+
+    <div class="product-grid" id="productGrid"></div>
+
+</section>
+
+<!-- Cart Sidebar -->
+<div class="overlay" id="overlay" onclick="toggleCart()"></div>
+
+<aside class="cart-sidebar" id="cartSidebar">
+
+    <div class="cart-header">
+        <h2>Your Shopping Cart</h2>
+        <button onclick="toggleCart()">✕</button>
+    </div>
+
+    <div id="cartItems"></div>
+
+    <div class="cart-footer">
+        <h3>Total: ₹<span id="cartTotal">0</span></h3>
+        <button onclick="checkout()">Proceed to Checkout</button>
+    </div>
+
+</aside>
+
+<!-- Footer -->
+<footer>
+    <h2>shop<span>zone</span></h2>
+    <p>Your favourite products, all in one place.</p>
+    <p>© 2026 ShopZone. All rights reserved.</p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
